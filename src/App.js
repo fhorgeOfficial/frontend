@@ -1,24 +1,27 @@
-import logo from './logo.svg';
+import React, { Suspense } from 'react';
 import './App.css';
+import 'bootstrap'
+import 'bootstrap/dist/css/bootstrap.css'
+import 'bulma/css/bulma.css';
+import 'fontawesome'
+// import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+// import { Wave, Flag } from 'react-preloading-component';
+import { Mode } from './providers/Mode';
+import Preloader from './Preloader';
 
 function App() {
+
+  const Home = React.lazy(() => import('./pages/home/Home'));
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Mode>
+        <Suspense fallback={<Preloader />}>
+          <Home />
+        </Suspense>
+      </Mode>
+    </>
   );
 }
 

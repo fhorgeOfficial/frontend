@@ -1,0 +1,17 @@
+.preloader {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.darkMode {
+    background-color: #002347;
+    color: #F2F2F2;
+}
+
+.lightMode {
+    background-color: #F2F2F2;
+    color: #002347;
+}
