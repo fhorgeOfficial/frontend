@@ -9,6 +9,7 @@ import 'react-toastify/dist/ReactToastify.css';
 // import { Wave, Flag } from 'react-preloading-component';
 import { Mode } from './providers/Mode';
 import Preloader from './Preloader';
+import { Route, Routes } from 'react-router-dom';
 
 function App() {
 
@@ -17,9 +18,53 @@ function App() {
   return (
     <>
       <Mode>
-        <Suspense fallback={<Preloader />}>
-          <Home />
-        </Suspense>
+        <Routes>
+          <Route
+            exact
+            path='/'
+            element={
+              <Suspense fallback={<Preloader />}>
+                <Home />
+              </Suspense>
+            }
+          />
+          <Route
+            exact
+            path='/about-us'
+            element={
+              <Suspense fallback={<Preloader />}>
+                <Home />
+              </Suspense>
+            }
+          />
+          <Route
+            exact
+            path='/sign-in'
+            element={
+              <Suspense fallback={<Preloader />}>
+                <Home />
+              </Suspense>
+            }
+          />
+          <Route
+            exact
+            path='/courses'
+            element={
+              <Suspense fallback={<Preloader />}>
+                <Home />
+              </Suspense>
+            }
+          />
+          <Route
+            exact
+            path='/help-center'
+            element={
+              <Suspense fallback={<Preloader />}>
+                <Home />
+              </Suspense>
+            }
+          />
+        </Routes>
       </Mode>
     </>
   );

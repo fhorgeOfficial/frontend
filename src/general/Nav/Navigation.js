@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
 import { useMode } from '../../providers/Mode'
-import { Link } from 'react-router-dom';
-import Login from '../../images/login.png'
+import { Link, useLocation } from 'react-router-dom';
 
 const Navigation = () => {
     const mode = useMode();
     const [showMenu, setShowMenu] = useState(false);
+    const location = useLocation();
 
     const toogleMenu = () => {
         if (showMenu) {
@@ -16,75 +16,64 @@ const Navigation = () => {
     }
     return (
         <>
-            <nav className={`${((mode.myMode === 'dark') ? "darkNav" : "lightNav")} navbar`} role="navigation" aria-label="main navigation">
+            <nav className={`${((mode.myMode === 'dark') ? "darkNav" : "lightNav")} navbar p-0`} role="navigation" aria-label="main navigation">
                 <div className="navbar-brand">
-                    <Link className="navbar-item" to={'/'}>
-                        <img src={((mode.myMode === 'dark') ? "/darkLogo.png" : "/logo.png")} width="112" height="28" alt={'Fhorge'} />
+                    <Link className={`${((mode.myMode === 'dark') ? "textLight" : "textDark")} navbar-item`} to={'/'}>
+                        <img src={((mode.myMode === 'dark') ? "/logo_dark.png" : "/logo.png")} width="112" height="28" alt={'Fhorge'} />
                     </Link>
 
-                    <Link role="button" className={`${showMenu ? 'is-active' : ''} navbar-burger`} style={{ position: 'fixed', right: '15px' }} aria-label="menu" aria-expanded="false" onClick={toogleMenu} data-target="navbarBasicExample">
+                    <Link role="button" className={`${showMenu ? 'is-active' : ''} ${((mode.myMode === 'dark') ? "textLight" : "textDark")} navbar-burger`} style={{ position: 'fixed', right: '15px' }} aria-label="menu" aria-expanded="false" onClick={toogleMenu} data-target="navbarBasicExample">
                         <span aria-hidden="true"></span>
                         <span aria-hidden="true"></span>
                         <span aria-hidden="true"></span>
                     </Link>
                 </div>
 
-                <div id="navbarBasicExample" className="navbar-menu">
-                    <div className="navbar-start">
-                        <Link className="navbar-item" to={'/'}>
+                <div id="navbarBasicExample" className={`${showMenu ? 'sm' : ''} ${mode.myMode} navbar-menu align-items-center`}>
+                    <div className={`navbar-start ${mode.myMode} ${showMenu ? 'no-border' : ''}`}>
+                        <Link className={`${((mode.myMode === 'dark') ? "textLight" : "textDark")} ${location.pathname === '/' ? 'active' : ''} navbar-item`} to="/">
                             Home
                         </Link>
-
-                        <Link className="navbar-item">
-                            Documentation
+                        <Link className={`${((mode.myMode === 'dark') ? "textLight" : "textDark")} ${location.pathname === '/courses' ? 'active' : ''} navbar-item`} to="/courses">
+                            Courses
                         </Link>
-
-                        <div className="navbar-item has-dropdown is-hoverable">
-                            <Link className="navbar-link">
-                                More
-                            </Link>
-
-                            <div className="navbar-dropdown">
-                                <Link className="navbar-item">
-                                    About
-                                </Link>
-                                <Link className="navbar-item">
-                                    Jobs
-                                </Link>
-                                <Link className="navbar-item">
-                                    Contact
-                                </Link>
-                                <hr className="navbar-divider" />
-                                <Link className="navbar-item">
-                                    Report an issue
-                                </Link>
-                            </div>
-                        </div>
+                        <Link className={`${((mode.myMode === 'dark') ? "textLight" : "textDark")} ${location.pathname === '/help-center' ? 'active' : ''} navbar-item`} to="/help-center">
+                            Help Center
+                        </Link>
+                        <Link className={`${((mode.myMode === 'dark') ? "textLight" : "textDark")} ${location.pathname === '/about-us' ? 'active' : ''} navbar-item`} to="/about-us">
+                            About us
+                        </Link>
                     </div>
-
                     <div className="navbar-end">
-                        <div className="navbar-item">
-                            <div className="buttons">
-                                <Link className={`${((mode.myMode === 'light') ? "lightMenuLink" : "darkMenuLink")} menuLink modeChanger`} onClick={() => mode.toogleMode()}>
+                        <div className={`${((mode.myMode === 'dark') ? "textLight" : "textDark")} navbar-item`}>
+                            <div className="buttons d-flex" style={{ alignContent: 'center' }}>
+                                <Link className={`${((mode.myMode === 'light') ? "textDark" : "textLight")} menuLink modeChanger`} title={mode.myMode + " mode"} onClick={() => mode.toogleMode()}>
                                     {(mode.myMode === 'light') ? (
                                         <>
-                                            <span class="material-symbols-outlined" style={{ color:'#FD7702', }} >
+                                            <span class="material-symbols-outlined" style={{ color: '#FD7702', }} >
                                                 star
                                             </span>
                                         </>
                                     ) : (
                                         <>
                                             <>
-                                                <span class="material-symbols-outlined" style={{ color:'#002347', }}>
+                                                <span class="material-symbols-outlined" style={{ color: '#f2f2f2', }}>
                                                     dark_mode
                                                 </span>
                                             </>
                                         </>
                                     )}
+                                    <span className={`${((mode.myMode === 'light') ? "textDark" : "textLight")}`}>
+                                        {mode.myMode.toUpperCase()}
+                                    </span>
                                 </Link>
-                                <Link to={'/sign-in'} className={`${((mode.myMode === 'light') ? "lightMenuLink" : "darkMenuLink")} menuLink`}>
-                                    <img src={Login} alt={''} height={'20'}  />
-                                    Sign in
+                                <Link to={'/sign-in'} className={`${((mode.myMode === 'light') ? "textDark" : "textLight")} ${location.pathname === '/sign-in' ? 'active' : ''} menuLink d-flex`}>
+                                    <span className={`${((mode.myMode === 'light') ? "textDark" : "textLight")} material-symbols-outlined`}>
+                                        login
+                                    </span>
+                                    <span className={`${((mode.myMode === 'light') ? "textDark" : "textLight")}`}>
+                                        Sign in
+                                    </span>
                                 </Link>
                             </div>
                         </div>

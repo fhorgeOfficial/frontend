@@ -1,20 +1,38 @@
 body {
-  background-color: #F2F2F2 !important;
   min-height: 100vh;
   color: #4460EF !important;
-  font-family: Verdana, Geneva, Tahoma, sans-serif !important;
+  /* font-family: 'Mulish', sans-serif; */
+  /* font-family: 'Mulish', sans-serif; */
+  font-family: 'Work Sans', sans-serif !important;
 }
 
-.navbar-brand {
-
+.navbar-menu.sm {
+  display: block;
+  position: fixed;
+  right: 0;
+  top: 56px;
+  padding: 0;
+  border: #002;
+  box-shadow: 0px 2px 6px #002;
 }
 
-.lightNav {
-  background-color: transparent !important;
+.lightNav, .sm.light {
+  background-color: #ffffff !important;
+  box-shadow: 0px 1px 6px #002347;
 }
 
-.darkNav {
-  background-color: transparent !important;
+.darkNav, .sm.dark {
+  background-color: #002347 !important;
+  box-shadow: 0px 1px 6px #f2f2f2;
+  color: #f2f2f2 !important;
+}
+
+.textLight, .dark, .textLight>p {
+  color: #f2f2f2 !important;
+}
+
+.textDark, .light, .textDark>p {
+  color: #002347 !important;
 }
 
 .menuLink {
@@ -22,6 +40,65 @@ body {
   font-size: medium;
 }
 
-.menuLink:hover {
+.menuLink:hover,
+.textLight.navbar-item:hover,
+.textDark.navbar-item:hover,
+.textLight.menuLink:hover,
+.textDark.menuLink:hover,
+.textLight.menuLink:hover>.textLight,
+.textDark.menuLink:hover>.textDark {
   color: #4460EF !important;
+}
+
+.monospace {
+  font-family: monospace;
+}
+
+.mr-10 {
+  margin-right: 10px;
+}
+
+.navbar-item:hover,
+.navbar-link:hover,
+.navbar-item:focus,
+.navbar-link:focus,
+.navbar-item.has-dropdown:focus .navbar-link,
+.navbar-item.has-dropdown:hover .navbar-link,
+.navbar-item.has-dropdown.is-active .navbar-link {
+  /* background-color: transparent !important; */
+}
+
+.navbar-start {
+  height: max-content;
+  align-items: center !important;
+}
+
+.navbar-start.dark {
+  border-left: 2px solid #f2f2f2;
+}
+
+.navbar-start.light {
+  border-left: 2px solid #002347;
+}
+
+.no-border {
+  border: none !important;
+}
+
+.modeChanger {
+  line-height: 25px;
+  padding: 3px 10px;
+  display: flex;
+  align-items: center;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.textLight.navbar-item.active {
+  background: #ffffff;
+  color: #002347 !important;
+}
+
+.textDark.navbar-item.active {
+  background: #002347;
+  color: #f2f2f2 !important;
 }
