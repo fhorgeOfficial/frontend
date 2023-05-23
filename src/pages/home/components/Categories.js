@@ -1,4 +1,9 @@
-import React from 'react'
+import React from 'react';
+import AI from '../../../images/ai.jpg';
+import DataScience from '../../../images/data_science.jpg'
+import DataAnalysis from '../../../images/data_analysis.jpg'
+import Cybersecurity from '../../../images/cyersecurity.jpg'
+import { Link } from 'react-router-dom';
 
 const Categories = () => {
     return (
@@ -10,20 +15,24 @@ const Categories = () => {
                 <div class="column">
                     <div class="card">
                         <div class="card-image">
-                            <figure class="image is-4by3">
-                                <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image" />
+                            <figure class="image is-4by4">
+                                <img src={AI} alt="Artificial Intelligence" />
                             </figure>
                         </div>
                         <div class="card-content">
                             <div class="media">
                                 <div class="media-left">
                                     <figure class="image is-48x48">
-                                        <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image" />
+                                        <img src={AI} alt="Artificial Intelligence" />
                                     </figure>
                                 </div>
                                 <div class="media-content">
-                                    <p class="title is-4">Category</p>
-                                    <p class="subtitle is-6">2000</p>
+                                    <Link to='/courses/ai'>
+                                        Artificial Intelligence
+                                    </Link>
+                                    <p class="subtitle is-6">
+                                        <small>100 subscribers</small>
+                                    </p>
                                 </div>
                             </div>
                         </div>
@@ -32,20 +41,28 @@ const Categories = () => {
                 <div class="column">
                     <div class="card">
                         <div class="card-image">
-                            <figure class="image is-4by3">
-                                <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image" />
+                            <figure class="image is-4by4">
+                                <img src={DataScience} alt="Data Science" />
                             </figure>
                         </div>
                         <div class="card-content">
                             <div class="media">
                                 <div class="media-left">
                                     <figure class="image is-48x48">
-                                        <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image" />
+                                        <img src={DataScience} alt="Data Science" />
                                     </figure>
                                 </div>
                                 <div class="media-content">
-                                    <p class="title is-4">Category</p>
-                                    <p class="subtitle is-6">2000</p>
+                                    <Link to='/courses/data_science'>
+                                        Data Science
+                                    </Link>
+                                    <p class="subtitle is-6">
+                                        <small>
+                                            <b>
+                                                20 subscribers
+                                            </b>
+                                        </small>
+                                    </p>
                                 </div>
                             </div>
                         </div>
@@ -54,20 +71,24 @@ const Categories = () => {
                 <div class="column">
                     <div class="card">
                         <div class="card-image">
-                            <figure class="image is-4by3">
-                                <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image" />
+                            <figure class="image is-4by4">
+                                <img src={Cybersecurity} alt="Cybersecurity" />
                             </figure>
                         </div>
                         <div class="card-content">
                             <div class="media">
                                 <div class="media-left">
                                     <figure class="image is-48x48">
-                                        <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image" />
+                                        <img src={Cybersecurity} alt="Cybersecurity" />
                                     </figure>
                                 </div>
                                 <div class="media-content">
-                                    <p class="title is-4">Category</p>
-                                    <p class="subtitle is-6">2000</p>
+                                    <Link to='/courses/Cybersecurity'>
+                                        Cybersecurity
+                                    </Link>
+                                    <p class="subtitle is-6">
+                                        <small>1200 subscribers</small>
+                                    </p>
                                 </div>
                             </div>
                         </div>
@@ -76,20 +97,28 @@ const Categories = () => {
                 <div class="column">
                     <div class="card">
                         <div class="card-image">
-                            <figure class="image is-4by3">
-                                <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image" />
+                            <figure class="image is-4by4">
+                                <img src={DataAnalysis} alt="Data Analysis" />
                             </figure>
                         </div>
                         <div class="card-content">
                             <div class="media">
                                 <div class="media-left">
                                     <figure class="image is-48x48">
-                                        <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image" />
+                                        <img src={DataAnalysis} alt="Data Analysis" />
                                     </figure>
                                 </div>
                                 <div class="media-content">
-                                    <p class="title is-4">Category</p>
-                                    <p class="subtitle is-6">2000</p>
+                                    <Link to='/courses/data_science'>
+                                        Data Analysis
+                                    </Link>
+                                    <p class="subtitle is-6">
+                                        <small>
+                                            <b>
+                                                2200 subscribers
+                                            </b>
+                                        </small>
+                                    </p>
                                 </div>
                             </div>
                         </div>
