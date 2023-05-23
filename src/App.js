@@ -14,6 +14,11 @@ import { Route, Routes } from 'react-router-dom';
 function App() {
 
   const Home = React.lazy(() => import('./pages/home/Home'));
+  
+  const Contact = React.lazy(() => import('./pages/contact/Contact'));
+  const About = React.lazy(() => import('./pages/about/About'));
+  const HelpCenter = React.lazy(() => import('./pages/helpCenter/HelpCenter'));
+  const SignIn = React.lazy(() => import('./pages/sign-in/SignIn'));
 
   return (
     <>
@@ -33,7 +38,7 @@ function App() {
             path='/about-us'
             element={
               <Suspense fallback={<Preloader />}>
-                <Home />
+                <About />
               </Suspense>
             }
           />
@@ -42,7 +47,7 @@ function App() {
             path='/sign-in'
             element={
               <Suspense fallback={<Preloader />}>
-                <Home />
+                <SignIn />
               </Suspense>
             }
           />
@@ -60,7 +65,7 @@ function App() {
             path='/help-center'
             element={
               <Suspense fallback={<Preloader />}>
-                <Home />
+                <HelpCenter />
               </Suspense>
             }
           />

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useMode } from '../../providers/Mode'
 import { Link, useLocation } from 'react-router-dom';
 
@@ -13,7 +13,12 @@ const Navigation = () => {
         } else {
             setShowMenu(true);
         }
+        console.log(location.pathname)
     }
+
+    useEffect(() => {
+        setShowMenu(false);
+    }, [location.pathname])
     return (
         <>
             <nav className={`${((mode.myMode === 'dark') ? "darkNav" : "lightNav")} navbar p-0`} role="navigation" aria-label="main navigation">
